@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user'
+import { Property } from '../property'
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-host-form',
@@ -11,7 +15,9 @@ export class HostFormComponent implements OnInit {
       }
 
 
-  constructor() { }
+  constructor(private _userService: UserService, private _router: Router,) { }
+
+
   form1Visible 
   form2Visible 
   form3Visible 
@@ -19,6 +25,8 @@ export class HostFormComponent implements OnInit {
   form5Visible
   form6Visible
   form7Visible
+  form8Visible
+  currentUser
   ngOnInit() {
     this.form1Visible = true;
     this.form2Visible = false;
@@ -27,7 +35,11 @@ export class HostFormComponent implements OnInit {
     this.form5Visible = false;
     this.form6Visible = false;
     this.form7Visible = false;
+    this.form8Visible = false;
   }
+
+  property = new Property();
+
   back1(){
     this.form1Visible=true;
     this.form2Visible = false;
@@ -43,6 +55,18 @@ export class HostFormComponent implements OnInit {
   back4(){
     this.form4Visible = true;
     this.form5Visible = false;
+  }
+  back5(){
+    this.form5Visible = true;
+    this.form6Visible = false;
+  }
+  back6(){
+    this.form6Visible = true;
+    this.form7Visible = false;
+  }
+  back7(){
+    this.form7Visible = true;
+    this.form8Visible = false;
   }
   view2(){
     this.form1Visible = false;
@@ -68,6 +92,10 @@ export class HostFormComponent implements OnInit {
   view7(){
     this.form6Visible = false;
     this.form7Visible = true;
+  }
+  view8(){
+    this.form8Visible = true;
+    this.form7Visible = false;
   }
 
 

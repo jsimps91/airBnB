@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Become an AirBnB Host!</h1>
-  <form style="width: 50%">
+  <form style="width: 50%; overflow:visible" (submit)="createProperty()">
     <div *ngIf="form1Visible==true" id="form1">
       <h3>
         <small class="text-muted">Step 1</small>
@@ -158,7 +158,7 @@
         <button class="btn btn-default" type="button" (click)="view5()">Next</button>
       </div>
     </div>
-    <div *ngIf="form5Visible===true">
+    <div *ngIf="form5Visible===true" style="overflow:visible">
       <h3>
         <small class="text-muted">Step 1</small>
       </h3>
@@ -166,6 +166,7 @@
         <h2>What's your full address?</h2>
         <ng4geo-autocomplete id="ng4geo" (componentCallback)="autoCompleteCallback2($event)"></ng4geo-autocomplete>
       </div>
+      <br>
       <button class="btn btn-default" type="button" (click)="back4()">Go Back</button>
       <button class="btn btn-default" type="button" (click)="view6()">Next</button>
     </div>
@@ -186,19 +187,25 @@
       </h3>
       <div id="form-group">
         <label>Name your place</label>
-        <input name="title"class="form-control" type="text">
+        <input name="title" class="form-control" type="text">
         <label>Add a description</label>
-        <textarea class="form-control"  name="description">max 500 characters</textarea>
+        <textarea class="form-control" name="description">max 500 characters</textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default" type="button" (click)="back6()">Go Back</button>
+        <button class="btn btn-default" type="button" (click)="view8()">Next</button>
       </div>
     </div>
     <div *ngIf="form8Visible===true">
-        <h3>
-            <small class="text-muted">Step 2</small>
-          </h3>
-          <div class="form-group">
-            <label>Price per night</label>
-            <input class="form-control" type="text" name="price">
-          </div>
+      <h3>
+        <small class="text-muted">Step 2</small>
+      </h3>
+      <div class="form-group">
+        <label>Price per night</label>
+        <input class="form-control" type="text" name="price">
+      </div>
+      <button class="btn btn-default" type="button" (click)="back7()">Go Back</button>
+      <input type="submit" value="Finish" class="btn btn-primary">
     </div>
   </form>
 </div>

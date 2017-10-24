@@ -140,6 +140,7 @@ endDate: null};
               this.loginError.push("Password doesn't match records.");
             } else {
               this.currUser = data; 
+              console.log("CURRENT USER")
               console.log(this.currUser);
               let event = new MouseEvent('click', {bubbles: true});
               this._renderer.invokeElementMethod(
