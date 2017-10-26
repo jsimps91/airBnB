@@ -24,16 +24,9 @@ export class NavComponent implements OnInit {
   currMonth = (new Date()).getMonth();
   currDay = (new Date()).getDate();
   todaysDate = this.currMonth+'/'+this.currDay+'/'+ this.currYear;
-
-  
-
-
-
   autoCompleteCallback1(selectedData:any) {
 
   }
-
-  
   private myDateRangePickerOptions: IMyDrpOptions = {
     dateFormat: 'mmm dd yyyy',
     disableUntil: {
@@ -43,13 +36,7 @@ export class NavComponent implements OnInit {
     },
     maxYear: new Date().getFullYear()+2,
     height: '45px',
-    
-    
-  
 };
-
-
-
 private model: Object = {beginDate: null,
 endDate: null};
   
@@ -85,14 +72,7 @@ endDate: null};
         console.log(this.todaysDate)
         console.log(typeof(this.todaysDate))
 
-  
-        // this.regErrors = [];
-        // this.checkPassword();
-        // this.validateEmail(this.user.email);
-        // if (this.regErrors.length > 0) {
-        //   this.user = new User;
-        //   this.pwConfirm = '';
-        // } else {
+
           console.log(this.user)
           this._userService.regAttempt(this.user)
             .then(data => {
@@ -106,14 +86,7 @@ endDate: null};
                   this._renderer.invokeElementMethod(
                   this.fileInput.nativeElement, 'dispatchEvent', [event]
               )}
-              // if (data.emailError) {
-              //   this.regErrors.push(data.emailError);
-              //   this.user = new User;
-              //   this.pwConfirm = '';
-              // } else {
-              //   // this.currUser = data;
-              //   this._router.navigateByUrl('/choose_topics');             
-              // }
+
               this._router.navigateByUrl('/')
               
             })
@@ -154,15 +127,6 @@ endDate: null};
             this._userService.setCurrUser(data[0].pk);
             this._router.navigateByUrl('');
           }).catch(err => console.log(err))
-          // .then(resData => {
-          //   if (resData.error) {
-          //     this.loginError = resData.error;
-          //   } else {
-          //     // this.currUser = resData;
-          //     this._router.navigateByUrl('');
-          //   }
-          // }).catch(err => console.log(err));
-    
       }
 
       isLoggedIn() {
